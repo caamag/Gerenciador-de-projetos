@@ -13,24 +13,34 @@
         href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500&family=Protest+Guerrilla&family=Teko&display=swap"
         rel="stylesheet">
 
-    <script src="js/index.js"></script>
+    <script src="js/index.js" defer></script>
     <title>Coin</title>
 </head>
 
 <body>
 
     <div class="login">
-        <h1>Coin</h1>
-        <form action="" class="login-form">
+        <form class="login-form">
+            <h1>Coin</h1>
             <div>
-                <input type="text" name="user" placeholder="usuário:" id="userName">
+                <input type="text" name="user" placeholder="usuário:" id="userName" required>
             </div>
             <br>
 
             <div>
-                <input type="password" name="pass" placeholder="senha" id="pass">
+                <input type="password" name="pass" placeholder="senha" id="pass" required>
             </div>
+            <button type="submit">Login</button>
         </form>
+        <h1><Span>Login incorreto</Span></h1>
+    </div>
+
+    <div class="container">
+        <nav>
+            <button class="create-coin">+</button>
+            <button class="edit-coin"><img src="./assets/pen.png" alt=""></button>
+            <button class="delete-coin"><img src="./assets/cross.png" alt=""></button>
+        </nav>
     </div>
 
 </body>

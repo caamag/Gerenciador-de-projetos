@@ -9,7 +9,7 @@ html {
 }
 
 .login {
-    width: 40%;
+    width: 50%;
     height: 300px;
     position: absolute;
     top: 150px;
@@ -17,32 +17,51 @@ html {
     right: 0px;
     margin: auto;
     max-width: 700px;
+    display: none;
 }
 
 .login h1 {
     font-family: 'Pixelify Sans', sans-serif;
     font-family: 'Protest Guerrilla', sans-serif;
     font-family: 'Teko', sans-serif;
-    font-size: 8rem;
+    font-size: 6rem;
     text-align: center;
+    color: rgb(85, 116, 227); ;
+}
+
+.login span{
+    position: absolute;
+    color: white;
+    background-color: red;
+    font-size: 3rem; 
+    left: 0px;
+    right: 0px;
+    top: 115%;
+    width: 60%;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
 }
 
 .login-form {
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
     border-radius: 30px;
     padding: 10px;
     box-shadow: 0px 10px 30px gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .login-form input {
-    width: 50%;
-    min-width: 300px;
+    width: 100%;
+    height: 45px;
     margin: 0 auto;
+    margin-top: 10px;
     font-size: 1.6rem;
     padding: 10px;
     border-radius: 15px;
@@ -56,5 +75,65 @@ html {
 }
 
 .login-form input::placeholder {
-    color: rgb(193, 193, 193);
+    color: rgb(179, 179, 179);
+}
+
+.login-form div{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.login button{
+    width: 60%;
+    height: 40px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgb(85, 116, 227); 
+    margin-top: 20px;
+    transition: 250ms;
+}
+
+.login button:hover{
+    width: 65%;
+}
+
+
+
+/*Coin project*/
+
+.container{
+    width: 100%;
+    height: 100vh;
+}
+
+.container nav{
+    position: absolute;
+    position: fixed;
+    height: 100vh;
+    width: 70px;
+    background-color: rgb(208, 208, 208);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-coin, .delete-coin, .edit-coin{
+    width: 50px;
+    height: 50px;
+    font-size: 3rem;
+    border: none;
+    background: none;
+}
+
+nav img{
+    width: 50px;
+    height: 50px;
 }
