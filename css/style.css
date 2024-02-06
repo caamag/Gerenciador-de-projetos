@@ -221,6 +221,7 @@ nav img {
     font-family: 'Protest Guerrilla', sans-serif;
     font-family: 'Teko', sans-serif;
     color: white;
+    position: relative;
 }
 
 .coin h3 {
@@ -258,7 +259,14 @@ nav img {
     border-radius: 5px;
 }
 
-.detalhe {}
+.detalhe {
+    position: absolute;
+    width: 7px;
+    height: 50px;
+    background-color: rgb(93, 181, 243);
+    top: 60px;
+    left: -3px;
+}
 
 
 
