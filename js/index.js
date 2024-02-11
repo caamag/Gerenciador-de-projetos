@@ -23,6 +23,60 @@ form.addEventListener('submit', (e) => {
 
 })
 
+//create coin
+const createBtn = document.querySelector('.create-coin')
+createBtn.addEventListener('click', () => {
+    const createSection = document.querySelector('.create-coin-container')
+    createSection.style.display = 'block'; 
+
+    const closeCreateSectionBtn = document.querySelector('.close-create-section')
+    closeCreateSectionBtn.addEventListener('click', () => {
+        createSection.style.display = 'none'
+    })
+})
+
+
+let coins = JSON.parse(localStorage.getItem('coins')) || []; 
+const createForm = document.querySelector('.create-coin-container form')
+createForm.addEventListener('submit', (e) => {
+
+    e.preventDefault()
+    //inputs
+    const name = document.querySelector('#projectName').value
+    const price = document.querySelector('#price').value
+    const customerName = document.querySelector('#customerName').value
+    const details = document.querySelector('#detailsProject').value
+
+    const coinObj = {
+        name: name, 
+        price: price, 
+        customerName: customerName, 
+        details: details
+    }
+
+    coins.push(coinObj)
+    localStorage.setItem('coins', JSON.stringify(coins))
+})
+
+console.log(coins);
+//localStorage.clear();
+
+
+//edite coin 
+const editCoinBtn = document.querySelector('.edit-coin')
+editCoinBtn.addEventListener('click', () => {
+
+    const editCoinContainer = document.querySelector('.edit-coin-container')
+    editCoinContainer.style.display = 'block'
+
+    const closeEditContainerBtn = document.querySelector('.close-edit-section')
+    closeEditContainerBtn.addEventListener('click', () => {
+        editCoinContainer.style.display = 'none'
+    })
+
+})
+
+
 
 
 

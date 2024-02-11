@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -36,29 +36,61 @@
         <nav>
             <button class="create-coin">+</button>
             <button class="edit-coin"><img src="./assets/pen.png" alt=""></button>
-            <button class="delete-coin"><img src="./assets/cross.png" alt=""></button>
         </nav>
 
         <section class="coins-container">
             <h1>Clientes</h1>
-            <p class="total-projects">Quantidade de serviços</p>
+            <p class="total-projects">Total de coins</p>
 
             <div class="coins">
                 <div class="coin">
                     <h3>Nome do projeto</h3>
                     <p>Nome do cliente</p>
                     <p>Preço:</p>
-                    <button>Detalhes</button>
+                    <button class="details-project">Detalhes</button>
                     <div class="detalhe"></div>
+                    <button class="delete"><img src="./assets/cross.png" alt=""></button>
                 </div>
             </div>
         </section>
 
-        <section class="create-coin-container"></section>
+        <section class="create-coin-container">
 
-        <section class="delete-coin-container"></section>
+            <button class="close-create-section">
+                <img src="./assets/cross.png" alt="">
+            </button>
 
-        <section class="edit-coin-container"></section>
+            <form action="">
+                <h1>Criar novo projeto</h1><br>
+                <input type="text" placeholder="Novo nome do projeto" id="projectName" required><br>
+                <input type="number" placeholder="Novo valor" id="price" required><br>
+                <input type="text" placeholder="Nome do cliente" id="customerName" required><br><br>
+                <textarea id="detailsProject" cols="30" rows="10" placeholder="Detalhes do projeto (opcional)"></textarea><br><br>
+                <button class="create-project-btn">Criar</button>
+            </form>
+
+        </section>
+
+        <section class="edit-coin-container">
+
+            <button class="close-edit-section">
+                <img src="./assets/cross.png" alt="">
+            </button>
+
+            <form action="">
+                <h1>Editar projeto existente</h1><br>
+                <input type="number" placeholder="Insira o ID do projeto:" id="projectID" required><br>
+                <input type="text" placeholder="Nome do projeto" id="newprojectName" required><br>
+                <input type="number" placeholder="Valor cobrado" id="newprice" required><br>
+                <input type="text" placeholder="Nome do cliente" id="newcustomerName" required><br><br>
+                <textarea id="newdetailsProject" cols="30" rows="10" placeholder="Detalhes do projeto (opcional)"></textarea><br><br>
+                <button class="create-project-btn">Salvar edição</button>
+            </form>
+
+        </section>
+
+
+
 
         <div class="date">
             <p></p>

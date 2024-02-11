@@ -12,6 +12,32 @@ body {
     background-color: rgb(24, 24, 24);
 }
 
+h1{
+    color: white;
+    font-size: 3rem;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-family: 'Teko', sans-serif;
+}
+
+button{
+    width: 250px;
+    cursor: pointer;
+    border: none;
+    font-size: 2rem;
+    transition: 250ms;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-radius: 10px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-family: 'Teko', sans-serif;
+}
+
+button:hover{
+    background-color: rgb(56, 56, 56);
+}
+
 .login {
     width: 50%;
     height: 300px;
@@ -25,9 +51,6 @@ body {
 }
 
 .login h1 {
-    font-family: 'Pixelify Sans', sans-serif;
-    font-family: 'Protest Guerrilla', sans-serif;
-    font-family: 'Teko', sans-serif;
     font-size: 6rem;
     text-align: center;
     color: white;
@@ -117,6 +140,7 @@ body {
 .container {
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
 .container nav {
@@ -183,21 +207,21 @@ nav img {
     font-family: 'Pixelify Sans', sans-serif;
     font-family: 'Protest Guerrilla', sans-serif;
     font-family: 'Teko', sans-serif;
-    font-size: 6rem;
+    font-size: 4rem;
 }
 
 .total-projects {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-family: 'Pixelify Sans', sans-serif;
     font-family: 'Protest Guerrilla', sans-serif;
     font-family: 'Teko', sans-serif;
     color: white;
-    margin-top: -15px;
+    font-weight: 100;
 }
 
 .coins {
     width: 100%;
-    height: 700px;
+    height: 400px;
     display: flex;
     justify-content: left;
     flex-wrap: wrap;
@@ -210,6 +234,7 @@ nav img {
 }
 
 .coin {
+    position: relative;
     width: 250px;
     height: 300px;
     margin-top: 40px;
@@ -224,19 +249,36 @@ nav img {
     position: relative;
 }
 
+.delete{
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    width: 40px;
+    height: 40px;
+    border: 100%;
+}
+
+.delete img{
+    width: 30px;
+    height: 30px;
+    border: 100%;
+    filter: invert(100%);
+}
+
 .coin h3 {
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 130px;
-    font-size: 3rem;
+    font-size: 1.8rem;
+    font-weight: 100;
 }
 
 .coin p {
     padding-left: 10px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
-.coin button {
+.details-project {
     margin-left: 10px;
     margin-top: 20px;
     font-size: 1.8rem;
@@ -253,7 +295,7 @@ nav img {
     transition: 250ms;
 }
 
-.coin button:hover {
+.details-project:hover {
     background-color: white;
     color: black;
     border-radius: 5px;
@@ -266,6 +308,104 @@ nav img {
     background-color: rgb(93, 181, 243);
     top: 60px;
     left: -3px;
+}
+
+/*coins containers*/
+.create-coin-container, 
+.edit-coin-container{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(24, 24, 24);
+    top: 0px;
+    display: none;
+    text-align: center;
+}
+
+.close-create-section, 
+.close-edit-section{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 3rem;
+    border: none;
+    background: none;
+    font-weight: 500;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: 250ms;
+}
+
+.close-create-section:hover, 
+.close-edit-section:hover{
+    background-color: rgb(74, 74, 74);
+}
+
+.close-create-section img, 
+.close-edit-section img{
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+.create-coin-container form, 
+.edit-coin-container form{
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.create-coin-container input, 
+.edit-coin-container input{
+    width: 100%;
+    height: 45px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background: rgb(71, 71, 71);
+    box-shadow: inset 1px 5px 15px rgb(28, 28, 28);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create-coin-container input:focus, 
+.edit-coin-container input:focus{
+    outline: none;
+}
+
+.create-coin-container textarea, 
+.edit-coin-container textarea{
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background: rgb(71, 71, 71);
+    box-shadow: inset 1px 5px 15px rgb(28, 28, 28);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create-coin-container textarea:focus, 
+.edit-coin-container textarea:focus{
+    outline: none;
+}
+
+.create-project-btn{
+    padding: 8px;
+}
+
+.create-project-btn:hover{
+    width: 300px;
 }
 
 
