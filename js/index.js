@@ -27,7 +27,7 @@ form.addEventListener('submit', (e) => {
 const createBtn = document.querySelector('.create-coin')
 createBtn.addEventListener('click', () => {
     const createSection = document.querySelector('.create-coin-container')
-    createSection.style.display = 'block'; 
+    createSection.style.display = 'block';
 
     const closeCreateSectionBtn = document.querySelector('.close-create-section')
     closeCreateSectionBtn.addEventListener('click', () => {
@@ -36,7 +36,7 @@ createBtn.addEventListener('click', () => {
 })
 
 
-let coins = JSON.parse(localStorage.getItem('coins')) || []; 
+let coins = JSON.parse(localStorage.getItem('coins')) || [];
 const createForm = document.querySelector('.create-coin-container form')
 createForm.addEventListener('submit', (e) => {
 
@@ -48,21 +48,43 @@ createForm.addEventListener('submit', (e) => {
     const details = document.querySelector('#detailsProject').value
 
     const coinObj = {
-        name: name, 
-        price: price, 
-        customerName: customerName, 
+        id: (coins.length) + 1,
+        name: name,
+        price: price,
+        customerName: customerName,
         details: details
     }
 
     coins.push(coinObj)
     localStorage.setItem('coins', JSON.stringify(coins))
+    window.location.reload()
+})
+console.log(coins);
+localStorage.clear();
+
+//handle coins
+const coinsContainer = document.querySelector('.coins')
+coins.map((item) => {
+    let coinContent = `
+    <div class="coin">
+        <h3>${item.name}</h3>
+        <p>Cliente: ${item.customerName}</p>
+        <p>Preço: R$${item.price}.00</p>
+        <p>ID:<span id="ID-Project">${item.id}</span></p>
+        <button class="details-project">Detalhes</button>
+        <button class="delete"><img src="./assets/cross.png" alt=""></button>
+    </div>
+    `;
+
+    coinsContainer.insertAdjacentHTML('afterbegin', coinContent)
 })
 
-console.log(coins);
-//localStorage.clear();
 
 
-//edite coin 
+
+
+
+//edit coin 
 const editCoinBtn = document.querySelector('.edit-coin')
 editCoinBtn.addEventListener('click', () => {
 
