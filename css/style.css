@@ -12,7 +12,7 @@ body {
     background-color: rgb(24, 24, 24);
 }
 
-h1{
+h1 {
     color: white;
     font-size: 3rem;
     font-family: 'Pixelify Sans', sans-serif;
@@ -20,7 +20,7 @@ h1{
     font-family: 'Teko', sans-serif;
 }
 
-button{
+button {
     width: 250px;
     cursor: pointer;
     border: none;
@@ -34,7 +34,7 @@ button{
     font-family: 'Teko', sans-serif;
 }
 
-button:hover{
+button:hover {
     background-color: rgb(56, 56, 56);
 }
 
@@ -156,7 +156,6 @@ button:hover{
 }
 
 .create-coin,
-.delete-coin,
 .edit-coin {
     width: 40px;
     height: 40px;
@@ -172,13 +171,8 @@ button:hover{
     border-radius: 100%;
 }
 
-.create-coin {
-    background-color: rgb(71, 71, 71);
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+.create-coin img {
+    transform: rotate(45deg);
 }
 
 .create-coin:hover,
@@ -249,19 +243,17 @@ nav img {
     position: relative;
 }
 
-.delete{
+.delete {
     position: absolute;
     top: 10px;
-    right: 6px;
+    right: 8px;
     width: 40px;
     height: 40px;
-    border: 100%;
 }
 
-.delete img{
+.delete img {
     width: 30px;
     height: 30px;
-    border: 100%;
     filter: invert(100%);
 }
 
@@ -311,8 +303,8 @@ nav img {
 }
 
 /*coins containers*/
-.create-coin-container, 
-.edit-coin-container{
+.create-coin-container,
+.edit-coin-container {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -322,8 +314,8 @@ nav img {
     text-align: center;
 }
 
-.close-create-section, 
-.close-edit-section{
+.close-create-section,
+.close-edit-section {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -338,28 +330,28 @@ nav img {
     transition: 250ms;
 }
 
-.close-create-section:hover, 
-.close-edit-section:hover{
+.close-create-section:hover,
+.close-edit-section:hover {
     background-color: rgb(74, 74, 74);
 }
 
-.close-create-section img, 
-.close-edit-section img{
+.close-create-section img,
+.close-edit-section img {
     width: 30px;
     height: 30px;
     filter: invert(100%);
 }
 
-.create-coin-container form, 
-.edit-coin-container form{
+.create-coin-container form,
+.edit-coin-container form {
     width: 30%;
     margin: 0 auto;
     text-align: center;
     margin-top: 100px;
 }
 
-.create-coin-container input, 
-.edit-coin-container input{
+.create-coin-container input,
+.edit-coin-container input {
     width: 100%;
     height: 45px;
     margin: 0 auto;
@@ -374,13 +366,13 @@ nav img {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.create-coin-container input:focus, 
-.edit-coin-container input:focus{
+.create-coin-container input:focus,
+.edit-coin-container input:focus {
     outline: none;
 }
 
-.create-coin-container textarea, 
-.edit-coin-container textarea{
+.create-coin-container textarea,
+.edit-coin-container textarea {
     width: 100%;
     height: 100px;
     margin: 0 auto;
@@ -395,16 +387,16 @@ nav img {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.create-coin-container textarea:focus, 
-.edit-coin-container textarea:focus{
+.create-coin-container textarea:focus,
+.edit-coin-container textarea:focus {
     outline: none;
 }
 
-.create-project-btn{
+.create-project-btn {
     padding: 8px;
 }
 
-.create-project-btn:hover{
+.create-project-btn:hover {
     width: 300px;
 }
 
