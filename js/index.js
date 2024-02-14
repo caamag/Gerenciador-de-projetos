@@ -47,8 +47,10 @@ createForm.addEventListener('submit', (e) => {
     const customerName = document.querySelector('#customerName').value
     const details = document.querySelector('#detailsProject').value
 
+    function getRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min }
+
     const coinObj = {
-        id: (coins.length) + 1,
+        id: (coins.length) + getRandomNumber(1, 9999),
         name: name,
         price: price,
         customerName: customerName,
@@ -60,17 +62,23 @@ createForm.addEventListener('submit', (e) => {
     window.location.reload()
 })
 console.log(coins);
-localStorage.clear();
+//localStorage.clear();
 
 //handle coins
 const coinsContainer = document.querySelector('.coins')
+if (coins.length === 0) {
+    const coinsEmpty = document.createElement('h1')
+    coinsEmpty.innerHTML = 'Pasta vazia até o momento...'
+    coinsContainer.appendChild(coinsEmpty)
+}
+
 coins.map((item) => {
     let coinContent = `
     <div class="coin">
         <h3>${item.name}</h3>
         <p>Cliente: ${item.customerName}</p>
         <p>Preço: R$${item.price}.00</p>
-        <p>ID:<span id="ID-Project">${item.id}</span></p>
+        <p>ID:<span id="ID-Project"> ${item.id}</span></p>
         <button class="details-project">Detalhes</button>
         <button class="delete"><img src="./assets/cross.png" alt=""></button>
     </div>
@@ -81,6 +89,22 @@ coins.map((item) => {
 
 
 
+//delete coin
+const deleteBtn = document.querySelectorAll('.delete')
+deleteBtn.forEach((btn) => {
+
+    btn.addEventListener('click', (e) => {
+        const divParent = e.target.closest('.coin')
+        const idToRemoveString = divParent.querySelector('p span').innerText
+        const idToRemove = parseInt(idToRemoveString)
+        coins = coins.filter(coin => coin.id !== idToRemove)
+        divParent.remove()
+
+        //updating localStorage
+        localStorage.setItem('coins', JSON.stringify(coins));
+    })
+
+})
 
 
 

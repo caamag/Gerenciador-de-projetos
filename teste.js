@@ -1,9 +1,8 @@
 const teste = [
-    {id: 1}, 
-    {id: 2}, 
-    {id: 3}
+    { id: 1 },
+    { id: 2 },
+    { id: 3 }
 ]
+teste.splice(1, 1)
 
-teste.map((item) => {
-    console.log(item.id)
-})
+console.log(teste);
