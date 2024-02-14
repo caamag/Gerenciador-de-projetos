@@ -91,19 +91,28 @@ coins.map((item) => {
 
 //delete coin
 const deleteBtn = document.querySelectorAll('.delete')
+const cancelDeleteBtn = document.querySelector('.cancel-delete-btn')
+const confirmDeleteBtn = document.querySelector('.confirm-delete-btn')
+const deleConfirm = document.querySelector('.delete-confirm')
 deleteBtn.forEach((btn) => {
 
     btn.addEventListener('click', (e) => {
         const divParent = e.target.closest('.coin')
         const idToRemoveString = divParent.querySelector('p span').innerText
         const idToRemove = parseInt(idToRemoveString)
-        coins = coins.filter(coin => coin.id !== idToRemove)
-        divParent.remove()
+        deleConfirm.style.display = 'block'
 
-        //updating localStorage
-        localStorage.setItem('coins', JSON.stringify(coins));
+        cancelDeleteBtn.addEventListener('click', () => { deleConfirm.style.display = 'none' })
+        confirmDeleteBtn.addEventListener('click', () => {
+
+            coins = coins.filter(coin => coin.id !== idToRemove)
+            divParent.remove()
+            //updating localStorage
+            localStorage.setItem('coins', JSON.stringify(coins));
+            deleConfirm.style.display = 'none'
+
+        })
     })
-
 })
 
 
