@@ -16,34 +16,17 @@
 </head>
 
 <body>
-
-    <div class="login">
-        <form action="" class="login-form">
-            <h1>Coin</h1>
-            <div>
-                <input type="text" name="user" placeholder="usuário:" id="userName">
-            </div>
-            <br>
-
-            <div>
-                <input type="password" name="pass" placeholder="senha" id="pass">
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <h1><Span>Login incorreto</Span></h1>
-    </div>
     <div class="container">
         <nav>
             <button class="create-coin"><img src="assets/cross.png" alt=""></button>
-            <button class="edit-coin"><img src="./assets/pen.png" alt=""></button>
         </nav>
 
         <section class="coins-container">
-            <h1>Clientes</h1>
-            <p class="total-projects">Total de coins: <span></span></p>
+            <h1>Meus Projetos</h1>
+            <p class="total-projects">Total de projetos: <span></span></p>
 
             <div class="delete-confirm">
-                <h3>Deseja excluir este projeto?</h3><br><br>
+                <h3>Deseja excluir o projeto <span class="project-name-confirm"></span></h3><br><br>
                 <div>
                     <button class="cancel-delete-btn">Cancelar</button>
                     <button class="confirm-delete-btn">Confirmar</button>
@@ -51,6 +34,14 @@
             </div>
 
             <div class="coins"></div>
+
+            <div class="details-container">
+                <div class="details-text">
+                    <h1>Detalhes do projeto:</h1>
+                    <p></p>
+                </div>
+                <button class="close-details"><img src="./assets/cross.png" alt=""></button>
+            </div>
         </section>
 
         <section class="create-coin-container">
@@ -60,9 +51,11 @@
             </button>
 
             <form action="">
-                <h1>Criar novo projeto</h1><br>
-                <input type="text" placeholder="Novo nome do projeto" id="projectName" required><br>
-                <input type="number" placeholder="Novo valor" id="price" required><br>
+                <h1>Criar novo projeto<br>
+                    Dica: escolha um nome objetivo.
+                </h1><br>
+                <input type="text" placeholder="Nome do projeto" id="projectName" required><br>
+                <input type="number" placeholder="Valor" id="price" required><br>
                 <input type="text" placeholder="Nome do cliente" id="customerName" required><br><br>
                 <textarea id="detailsProject" cols="30" rows="10"
                     placeholder="Detalhes do projeto (opcional)"></textarea><br><br>
@@ -89,8 +82,6 @@
             </form>
 
         </section>
-
-
 
 
         <div class="date">

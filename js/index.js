@@ -1,28 +1,3 @@
-//login
-const inputUser = document.querySelector('#userName')
-const passInput = document.querySelector('#pass')
-const errorLogin = document.querySelector('.login span')
-
-const form = document.querySelector('.login-form')
-
-const container = document.querySelector('.container')
-
-form.addEventListener('submit', (e) => {
-
-    e.preventDefault()
-    const user = inputUser.value;
-    const pass = passInput.value;
-
-    if (user === "florence" && pass === "@florence123") {
-        form.style.display = 'none'
-        errorLogin.style.display = 'none'
-        container.style.display = 'block'
-    } else {
-        errorLogin.style.display = 'block'
-    }
-
-})
-
 //create coin
 const createBtn = document.querySelector('.create-coin')
 createBtn.addEventListener('click', () => {
@@ -62,7 +37,7 @@ createForm.addEventListener('submit', (e) => {
     window.location.reload()
 })
 console.log(coins);
-//localStorage.clear();
+//localStorage.clear()
 
 //handle coins
 const coinsContainer = document.querySelector('.coins')
@@ -75,42 +50,49 @@ if (coins.length === 0) {
 coins.map((item) => {
     let coinContent = `
     <div class="coin">
-        <h3>${item.name}</h3>
-        <p>Cliente: ${item.customerName}</p>
-        <p>Preço: R$${item.price}.00</p>
+        <h3 id='project-title'>${item.name}</h3>
+        <p>Cliente: <span class='customer-name'>${item.customerName}</span></p>
+        <p>Preço: R$<span class='price-number'>${item.price}</span>.00</p>
         <p>ID:<span id="ID-Project"> ${item.id}</span></p>
-        <button class="details-project">Detalhes</button>
+        <button class="details-project-btn">Detalhes</button>
         <button class="delete"><img src="./assets/cross.png" alt=""></button>
+        <button class="edit"><img src="./assets/pen.png" alt=""></button>
+        <div class='details-content'>${item.details}</div>
     </div>
     `;
 
     coinsContainer.insertAdjacentHTML('afterbegin', coinContent)
 })
 
-
-
 //delete coin
 const deleteBtn = document.querySelectorAll('.delete')
 const cancelDeleteBtn = document.querySelector('.cancel-delete-btn')
 const confirmDeleteBtn = document.querySelector('.confirm-delete-btn')
+const projectNameConfirm = document.querySelector('.project-name-confirm')
 const deleConfirm = document.querySelector('.delete-confirm')
 deleteBtn.forEach((btn) => {
 
     btn.addEventListener('click', (e) => {
         const divParent = e.target.closest('.coin')
-        const idToRemoveString = divParent.querySelector('p span').innerText
-        const idToRemove = parseInt(idToRemoveString)
+        const title = divParent.querySelector('#project-title').innerText;
+        projectNameConfirm.innerHTML = ` "${title}"`
+        const idToRemoveString = divParent.querySelector('#ID-Project').innerText;
+        const idToRemove = parseInt(idToRemoveString);
+
         deleConfirm.style.display = 'block'
 
-        cancelDeleteBtn.addEventListener('click', () => { deleConfirm.style.display = 'none' })
-        confirmDeleteBtn.addEventListener('click', () => {
+        cancelDeleteBtn.addEventListener('click', () => {
+            deleConfirm.style.display = 'none'
+            location.reload()
+        })
 
+        confirmDeleteBtn.addEventListener('click', () => {
             coins = coins.filter(coin => coin.id !== idToRemove)
             divParent.remove()
             //updating localStorage
             localStorage.setItem('coins', JSON.stringify(coins));
             deleConfirm.style.display = 'none'
-
+            location.reload()
         })
     })
 })
@@ -118,20 +100,80 @@ deleteBtn.forEach((btn) => {
 
 
 //edit coin 
-const editCoinBtn = document.querySelector('.edit-coin')
-editCoinBtn.addEventListener('click', () => {
+const projectID = document.querySelector('#projectID')
+const newProjectName = document.querySelector('#newprojectName')
+const newPrice = document.querySelector('#newprice')
+const newCustomerName = document.querySelector('#newcustomerName')
+const newDetailsProject = document.querySelector('#newdetailsProject')
 
-    const editCoinContainer = document.querySelector('.edit-coin-container')
-    editCoinContainer.style.display = 'block'
+const editCoinBtn = document.querySelectorAll('.edit')
+editCoinBtn.forEach((btn) => {
 
-    const closeEditContainerBtn = document.querySelector('.close-edit-section')
-    closeEditContainerBtn.addEventListener('click', () => {
-        editCoinContainer.style.display = 'none'
+    btn.addEventListener('click', (e) => {
+        const editCoinContainer = document.querySelector('.edit-coin-container')
+        editCoinContainer.style.display = 'block'
+
+        const closeEditContainerBtn = document.querySelector('.close-edit-section')
+        closeEditContainerBtn.addEventListener('click', () => {
+            editCoinContainer.style.display = 'none'
+        })
+
+        const editedCoin = e.target.closest('.coin')
+        console.log(editedCoin)
+
+        projectID.value = parseInt(editedCoin.querySelector('#ID-Project').innerText)
+        newProjectName.value = editedCoin.querySelector('#project-title').innerText
+        newPrice.value = editedCoin.querySelector('.price-number').innerText
+        newCustomerName.value = editedCoin.querySelector('.customer-name').innerText
+        newDetailsProject.value = editedCoin.querySelector('.details-content').innerText
     })
 
 })
 
+const editForm = document.querySelector('.edit-coin-container form')
+const editContainer = document.querySelector('.edit-coin-container')
+editForm.addEventListener('submit', (e) => {
+    e.preventDefault()
 
+    const editedID = parseInt(projectID.value);
+
+    coins.forEach((coin) => {
+        if (coin.id === editedID) {
+            coin.name = newProjectName.value;
+            coin.customerName = newCustomerName.value;
+            coin.price = newPrice.value;
+            coin.details = newDetailsProject.value;
+        }
+    })
+    localStorage.setItem('coins', JSON.stringify(coins));
+    location.reload()
+})
+
+
+
+
+//show details
+const detailsBtn = document.querySelectorAll('.details-project-btn')
+const detailsContainer = document.querySelector('.details-container')
+const detailsText = document.querySelector('.details-text p')
+
+detailsBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        detailsContainer.style.display = 'block'
+        const divParent = e.target.closest('.coin')
+        const detailsContent = divParent.querySelector('.details-content').innerText
+        detailsText.innerHTML = detailsContent
+    })
+})
+
+const closeDetails = document.querySelector('.close-details')
+closeDetails.addEventListener('click', () => {
+    detailsContainer.style.display = 'none'
+})
+
+//total projects
+const totalProjects = document.querySelector('.total-projects span')
+totalProjects.innerHTML = coins.length
 
 
 
