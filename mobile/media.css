@@ -1,0 +1,21 @@
+@media screen and (max-width: 1350px) {
+    .coins{
+        height: 350px;
+    }
+
+    .coin{
+        width: 200px;
+        height: 250px;
+    }
+    .coin h3{
+        padding-bottom: 50px;
+        font-size: 1.8rem;
+    }
+    .coin p{
+        font-size: 1.6rem;
+    }
+    .edit img {
+        width: 20px;
+        height: 20px;
+    }
+}
