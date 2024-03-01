@@ -25,7 +25,7 @@ createForm.addEventListener('submit', (e) => {
     function getRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min }
 
     const coinObj = {
-        id: (coins.length) + getRandomNumber(1, 9999),
+        id: (coins.length) + getRandomNumber(1, 99999),
         name: name,
         price: price,
         customerName: customerName,
@@ -58,6 +58,8 @@ coins.map((item) => {
         <button class="delete"><img src="./assets/cross.png" alt=""></button>
         <button class="edit"><img src="./assets/pen.png" alt=""></button>
         <div class='details-content'>${item.details}</div>
+        <div class='coin-decoration1'></div>
+        <div class='coin-decoration2'></div>
     </div>
     `;
 
@@ -175,6 +177,45 @@ closeDetails.addEventListener('click', () => {
 const totalProjects = document.querySelector('.total-projects span')
 totalProjects.innerHTML = coins.length
 
+
+//search coin
+const searchForm = document.querySelector('.search-form')
+const searchInput = document.querySelector('#search')
+
+const returnToMenuBtn = document.querySelector('.return-menu')
+returnToMenuBtn.addEventListener('click', () => {
+    returnToMenuBtn.style.display = 'none'
+    location.reload()
+})
+
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const searchTerm = searchInput.value.trim().toLowerCase();
+
+    const coins = document.querySelectorAll('.coin')
+    coins.forEach((coin) => {
+        const coinId = parseInt(coin.querySelector('#ID-Project').innerText.trim())
+        const customerName = coin.querySelector('.customer-name').innerText.trim().toLowerCase()
+        const projectName = coin.querySelector('#project-title').innerText.trim().toLowerCase()
+
+        if (coinId.toString() === searchTerm || customerName.includes(searchTerm) || projectName.includes(searchTerm)) {
+            coin.classList.remove('invisible')
+            console.log(projectName)
+        } else {
+            coin.classList.add('invisible')
+            coinsContainer.style.justifyContent = 'center';
+            returnToMenuBtn.style.display = 'block';
+        }
+
+        searchInput.addEventListener('input', () => {
+            if (searchInput.value === '') {
+                coinsContainer.style.justifyContent = 'left';
+                returnToMenuBtn.style.display = 'none';
+                coin.classList.remove('invisible')
+            }
+        })
+    })
+})
 
 
 //current date
