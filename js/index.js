@@ -181,6 +181,7 @@ totalProjects.innerHTML = coins.length
 //search coin
 const searchForm = document.querySelector('.search-form')
 const searchInput = document.querySelector('#search')
+const notFoundContent = document.querySelector('.not-found-content')
 
 const returnToMenuBtn = document.querySelector('.return-menu')
 returnToMenuBtn.addEventListener('click', () => {
@@ -191,6 +192,7 @@ returnToMenuBtn.addEventListener('click', () => {
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const searchTerm = searchInput.value.trim().toLowerCase();
+    let noResultSearch = true;
 
     const coins = document.querySelectorAll('.coin')
     coins.forEach((coin) => {
@@ -200,11 +202,14 @@ searchForm.addEventListener('submit', (e) => {
 
         if (coinId.toString() === searchTerm || customerName.includes(searchTerm) || projectName.includes(searchTerm)) {
             coin.classList.remove('invisible')
-            console.log(projectName)
         } else {
             coin.classList.add('invisible')
             coinsContainer.style.justifyContent = 'center';
             returnToMenuBtn.style.display = 'block';
+        }
+
+        if (!coin.classList.contains('invisible')) {
+            noResultSearch = false;
         }
 
         searchInput.addEventListener('input', () => {
@@ -212,9 +217,17 @@ searchForm.addEventListener('submit', (e) => {
                 coinsContainer.style.justifyContent = 'left';
                 returnToMenuBtn.style.display = 'none';
                 coin.classList.remove('invisible')
+                notFoundContent.style.display = 'none';
             }
         })
     })
+
+    if (noResultSearch) {
+        notFoundContent.style.display = 'block';
+    } else {
+        notFoundContent.style.display = 'none';
+    }
+
 })
 
 

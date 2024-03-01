@@ -386,6 +386,40 @@ nav img {
     display: none;
 }
 
+.not-found-content {
+    display: none;
+}
+
+.not-found-content img {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    filter: invert(13%);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    animation: float infinite 2500ms;
+}
+
+@keyframes float {
+    0% {
+        filter: invert(13%);
+        padding-bottom: 0px;
+    }
+
+    50% {
+        filter: invert(20%);
+        padding-bottom: 40px;
+    }
+
+    100% {
+        filter: invert(13%);
+        padding-bottom: 0px;
+    }
+}
+
 /*coins containers*/
 .create-coin-container,
 .edit-coin-container {
