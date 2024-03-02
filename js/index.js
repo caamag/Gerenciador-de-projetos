@@ -243,4 +243,13 @@ const monthFormat = month < 10 ? '0' + month : month
 const dateText = `${dayFormat}/${monthFormat}/${year}`
 
 const currentDate = document.querySelector('.date')
-currentDate.innerHTML = dateText
+currentDate.innerHTML = dateText;
+
+
+
+//open report page
+const openReportBtn = document.querySelector('.create-report-icon')
+const reportPage = document.querySelector('.report-page')
+openReportBtn.addEventListener('click', () => {
+    reportPage.style.display = 'block'
+})

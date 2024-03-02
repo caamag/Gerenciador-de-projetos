@@ -57,7 +57,8 @@ button:hover {
     align-items: center;
 }
 
-.create-coin {
+.create-coin,
+.create-report-icon {
     width: 40px;
     height: 40px;
     font-size: 3rem;
@@ -67,25 +68,23 @@ button:hover {
     margin-bottom: 20px;
     cursor: pointer;
     transition: 250ms;
-    color: rgb(0, 0, 0);
-    background-color: rgb(68, 68, 68);
     border-radius: 100%;
+}
+
+.create-coin:hover,
+.create-report-icon:hover {
+    background: none;
+    scale: 1.1;
 }
 
 .create-coin img {
     transform: rotate(45deg);
 }
 
-.create-coin:hover,
-.delete-coin:hover,
-.edit-coin:hover {
-    scale: 0.9;
-}
-
 nav img {
     width: 26px;
     height: 26px;
-    filter: invert(100%);
+    filter: invert(30%);
 }
 
 
@@ -518,7 +517,31 @@ nav img {
     width: 300px;
 }
 
+/*report*/
 
+.report-page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    background-color: rgb(24, 24, 24);
+    display: none;
+}
+
+.close-report-btn {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 20px;
+    right: 20px;
+    padding: 5px;
+}
+
+.close-report-btn img {
+    width: 100%;
+    height: 100%;
+    filter: invert(100%);
+}
 
 /*date*/
 .date {
