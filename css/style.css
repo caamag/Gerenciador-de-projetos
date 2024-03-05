@@ -135,7 +135,8 @@ nav img {
     font-size: 4rem;
 }
 
-.total-projects {
+.total-projects,
+.total-projects-price {
     font-size: 1.6rem;
     font-family: 'Pixelify Sans', sans-serif;
     font-family: 'Protest Guerrilla', sans-serif;
@@ -511,10 +512,13 @@ nav img {
 
 .create-project-btn {
     padding: 8px;
+    background-color: rgb(174, 93, 17);
 }
 
 .create-project-btn:hover {
     width: 300px;
+    background-color: rgb(214, 127, 45);
+    box-shadow: 1px 1px 10px rgb(214, 127, 45);
 }
 
 /*report*/
@@ -528,7 +532,8 @@ nav img {
     display: none;
 }
 
-.close-report-btn {
+.close-report-btn,
+.close-data-btn {
     position: absolute;
     width: 45px;
     height: 45px;
@@ -537,10 +542,60 @@ nav img {
     padding: 5px;
 }
 
-.close-report-btn img {
+.close-report-btn img,
+.close-data-btn img {
     width: 100%;
     height: 100%;
     filter: invert(100%);
+}
+
+.report {
+    width: 40%;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.show-report-data {
+    width: 75%;
+    height: 100%;
+    border-radius: 15px;
+    font-size: 2.4rem;
+}
+
+.get-csv-btn {
+    width: 15%;
+    height: 60%;
+    border-radius: 15px;
+    font-size: 2rem;
+    background-color: rgb(174, 93, 17);
+}
+
+.get-csv-btn:hover {
+    background-color: rgb(214, 127, 45);
+    box-shadow: 1px 1px 10px rgb(214, 127, 45);
+}
+
+.report-data-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    background-color: rgb(24, 24, 24, 0.9);
+    display: none;
+}
+
+.data {
+    position: relative;
+    width: 50%;
+    height: 60vh;
+    background-color: rgb(53, 53, 53);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
 /*date*/

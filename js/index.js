@@ -176,6 +176,14 @@ closeDetails.addEventListener('click', () => {
 //total projects
 const totalProjects = document.querySelector('.total-projects span')
 totalProjects.innerHTML = coins.length
+const totalProjectsPrice = document.querySelector('.total-projects-price span')
+let currentTotalPrice = 0;
+for (let p = 0; p < coins.length; p++) {
+    currentTotalPrice += parseInt(coins[p].price)
+}
+
+totalProjectsPrice.innerHTML = `R$${currentTotalPrice}.00`;
+
 
 
 //search coin
