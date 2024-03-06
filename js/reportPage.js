@@ -28,3 +28,34 @@ const closeDataBtn = document.querySelector('.close-data-btn')
 closeDataBtn.addEventListener('click', () => {
     reportDataContainer.style.display = 'none'
 })
+
+//create a csv document with current data
+const currentCSVBtn = document.querySelector('.current-csv')
+currentCSVBtn.addEventListener('click', () => {
+
+    const totalPriceColumn = {
+        'Nome do projeto': '-',
+        'Nome do cliente': '-',
+        'Valor cobrado': '-',
+        'Detalhes do projeto': '-',
+        "Total faturado": totalProjectsPrice.innerText
+    }
+
+    const data = [
+        totalPriceColumn,
+        ...coins.map((coin) => {
+            return {
+                'Nome do projeto': coin.name,
+                'Nome do cliente': coin.customerName,
+                'Valor cobrado': coin.price,
+                'Detalhes do projeto': coin.details,
+                "Total faturado": ''
+            }
+        })
+    ]
+
+    const FileName = 'Projetos Atuais'
+    const exportType = 'csv'
+    window.exportFromJSON({ data, FileName: FileName, exportType })
+
+})

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "export-from-json": "^1.7.4",
     "vercel": "^33.5.3"
   }
 }
