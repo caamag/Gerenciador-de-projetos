@@ -24,12 +24,22 @@ createForm.addEventListener('submit', (e) => {
 
     function getRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min }
 
+    function getFormattedDate() {
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Mês começa do zero, então adicionamos 1
+        const year = today.getFullYear();
+
+        return `${day}/${month}/${year}`;
+    }
+
     const coinObj = {
         id: (coins.length) + getRandomNumber(1, 99999),
         name: name,
         price: price,
         customerName: customerName,
-        details: details
+        details: details,
+        created_at: getFormattedDate()
     }
 
     coins.push(coinObj)
