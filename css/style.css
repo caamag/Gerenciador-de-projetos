@@ -96,22 +96,28 @@ nav img {
 }
 
 .date-filter-container {
-    width: 350px;
-    height: 100%;
-    margin-left: 10px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    top: 20px;
     border-radius: 5px;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
-.date-filter-container input{
-    width: 25%;
-    height: 100%;
+.date-filter-container input {
+    width: 100%;
     border-radius: 5px;
-    padding: 2px;
+    padding: 5px;
 }
 
-.date-filter-container input::placeholder{
+.date-filter-container select {
+    padding: 5px;
+}
+
+.date-filter-container input::placeholder {
     color: black;
 }
 
