@@ -198,6 +198,7 @@ totalProjectsPrice.innerHTML = `R$${currentTotalPrice}.00`;
 
 //search coin
 const searchForm = document.querySelector('.search-form')
+
 const searchInput = document.querySelector('#search')
 const notFoundContent = document.querySelector('.not-found-content')
 

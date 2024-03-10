@@ -96,9 +96,23 @@ nav img {
 }
 
 .date-filter-container {
-    width: 200px;
+    width: 350px;
     height: 100%;
-    background-color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.date-filter-container input{
+    width: 25%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.date-filter-container input::placeholder{
+    color: black;
 }
 
 .search-form {
