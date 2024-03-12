@@ -70,6 +70,7 @@ coins.map((item) => {
         <div class='details-content'>${item.details}</div>
         <div class='coin-decoration1'></div>
         <div class='coin-decoration2'></div>
+        <p class='created-at-txt'>${item.created_at}</p>
     </div>
     `;
 
@@ -131,7 +132,6 @@ editCoinBtn.forEach((btn) => {
         })
 
         const editedCoin = e.target.closest('.coin')
-        console.log(editedCoin)
 
         projectID.value = parseInt(editedCoin.querySelector('#ID-Project').innerText)
         newProjectName.value = editedCoin.querySelector('#project-title').innerText
@@ -249,6 +249,30 @@ searchForm.addEventListener('submit', (e) => {
 
 })
 
+const dayInput = document.querySelector('#day-input')
+const monthInput = document.querySelector('#mouth-select')
+const yearInput = document.querySelector('#year-input')
+const searchDateBtn = document.querySelector('.date-filter-container button');
+
+searchDateBtn.addEventListener('click', () => {
+
+    const daySelected = dayInput.value;
+    const monthSelected = monthInput.value;
+    const yearSelected = yearInput.value;
+
+    //filter by day (only)
+    const coins = document.querySelectorAll('.coin')
+    coins.forEach(coin => {
+
+        if (monthSelected === '' && yearSelected === '') {
+            const coinDate = parseInt(coin.querySelector('.created-at-txt').innerText.slice(0, 2))
+            console.log(coinDate);
+        }
+
+    })
+
+})
+
 
 //current date
 const date = new Date()
@@ -263,8 +287,6 @@ const dateText = `${dayFormat}/${monthFormat}/${year}`
 
 const currentDate = document.querySelector('.date')
 currentDate.innerHTML = dateText;
-
-
 
 //open report page
 const openReportBtn = document.querySelector('.create-report-icon')
