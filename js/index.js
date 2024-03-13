@@ -249,6 +249,7 @@ searchForm.addEventListener('submit', (e) => {
 
 })
 
+//filter by date
 const dayInput = document.querySelector('#day-input')
 const monthInput = document.querySelector('#mouth-select')
 const yearInput = document.querySelector('#year-input')
@@ -256,21 +257,67 @@ const searchDateBtn = document.querySelector('.date-filter-container button');
 
 searchDateBtn.addEventListener('click', () => {
 
-    const daySelected = dayInput.value;
-    const monthSelected = monthInput.value;
+    const daySelected = dayInput.value.length === 1 ? `0${dayInput.value}` : dayInput.value;
+    let monthSelected = monthInput.value;
     const yearSelected = yearInput.value;
 
-    //filter by day (only)
+    if (monthSelected === '' && yearSelected === '' && daySelected === '') {
+        alert('Nenhum valor selecionado.')
+        return;
+    } else if (daySelected.length > 2 || yearSelected.length > 4) {
+        alert('Valores inválidos')
+        return;
+    } else if (daySelected && monthSelected === '' && yearSelected) {
+        alert('Insira o mês desejado.')
+        return;
+    }
+
+    switch (monthSelected) {
+        case 'Janeiro':
+            monthSelected = '01'
+            break;
+        case 'Fevereiro':
+            monthSelected = '02'
+            break;
+        case 'Março':
+            monthSelected = '03'
+            break;
+        case 'Abril':
+            monthSelected = '04'
+            break;
+        case 'Maio':
+            monthSelected = '05'
+            break;
+        case 'Junho':
+            monthSelected = '06'
+            break;
+        case 'Julho':
+            monthSelected = '07'
+            break;
+        case 'Agosto':
+            monthSelected = '08'
+            break;
+        case 'Setembro':
+            monthSelected = '09'
+            break;
+        case 'Outubro':
+            monthSelected = '10'
+            break
+        case 'Novembro':
+            monthSelected = '11'
+            break
+        case 'Dezembro':
+            monthSelected = '12'
+            break
+    }
+
     const coins = document.querySelectorAll('.coin')
     coins.forEach(coin => {
 
-        if (monthSelected === '' && yearSelected === '') {
-            const coinDate = parseInt(coin.querySelector('.created-at-txt').innerText.slice(0, 2))
-            console.log(coinDate);
-        }
-
+        const coinDay = coin.querySelector('.created-at-txt').innerText.slice(0, 2)
+        const coinMonth = coin.querySelector('.created-at-txt').innerText.slice(3, 5)
+        const coinYear = coin.querySelector('.created-at-txt').innerText.slice(6)
     })
-
 })
 
 
