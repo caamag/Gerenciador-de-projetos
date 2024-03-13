@@ -261,17 +261,6 @@ searchDateBtn.addEventListener('click', () => {
     let monthSelected = monthInput.value;
     const yearSelected = yearInput.value;
 
-    if (monthSelected === '' && yearSelected === '' && daySelected === '') {
-        alert('Nenhum valor selecionado.')
-        return;
-    } else if (daySelected.length > 2 || yearSelected.length > 4) {
-        alert('Valores inválidos')
-        return;
-    } else if (daySelected && monthSelected === '' && yearSelected) {
-        alert('Insira o mês desejado.')
-        return;
-    }
-
     switch (monthSelected) {
         case 'Janeiro':
             monthSelected = '01'
