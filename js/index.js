@@ -328,5 +328,5 @@ currentDate.innerHTML = dateText;
 const openReportBtn = document.querySelector('.create-report-icon')
 const reportPage = document.querySelector('.report-page')
 openReportBtn.addEventListener('click', () => {
-    reportPage.style.display = 'block'
+    reportPage.style.display = 'block'; 
 })
