@@ -261,6 +261,14 @@ searchDateBtn.addEventListener('click', () => {
     let monthSelected = monthInput.value;
     const yearSelected = yearInput.value;
 
+    if (daySelected === '' || monthSelected === '' || yearSelected === '') {
+        alert('Inserir todos os dados.');
+        return;
+    } else if (daySelected.length > 2 || yearSelected.length !== 4) {
+        alert('Valores inválidos');
+        return;
+    }
+
     switch (monthSelected) {
         case 'Janeiro':
             monthSelected = '01'
@@ -301,11 +309,21 @@ searchDateBtn.addEventListener('click', () => {
     }
 
     const coins = document.querySelectorAll('.coin')
+
     coins.forEach(coin => {
 
         const coinDay = coin.querySelector('.created-at-txt').innerText.slice(0, 2)
         const coinMonth = coin.querySelector('.created-at-txt').innerText.slice(3, 5)
         const coinYear = coin.querySelector('.created-at-txt').innerText.slice(6)
+
+        if (daySelected === coinDay && monthSelected === coinMonth && yearSelected === coinYear) {
+            coin.classList.remove('invisible')
+            notFoundContent.style.display = 'none'
+            coinsContainer.style.justifyContent = 'center';
+            returnToMenuBtn.style.display = 'none';
+        } else {
+            coin.classList.add('invisible')
+        }
     })
 })
 
@@ -328,5 +346,5 @@ currentDate.innerHTML = dateText;
 const openReportBtn = document.querySelector('.create-report-icon')
 const reportPage = document.querySelector('.report-page')
 openReportBtn.addEventListener('click', () => {
-    reportPage.style.display = 'block'; 
+    reportPage.style.display = 'block';
 })
