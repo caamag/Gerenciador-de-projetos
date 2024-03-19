@@ -168,13 +168,17 @@ editForm.addEventListener('submit', (e) => {
 const detailsBtn = document.querySelectorAll('.details-project-btn')
 const detailsContainer = document.querySelector('.details-container')
 const detailsText = document.querySelector('.details-text p')
+const detailsTitle = document.querySelector('.details-text h1')
 
 detailsBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         detailsContainer.style.display = 'block'
         const divParent = e.target.closest('.coin')
         const detailsContent = divParent.querySelector('.details-content').innerText
-        detailsText.innerHTML = detailsContent
+        const detailsTitleDynamic = divParent.querySelector('#project-title').innerText
+        detailsTitle.innerHTML = detailsTitleDynamic;
+        detailsText.innerHTML = detailsContent;
+
     })
 })
 

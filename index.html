@@ -16,6 +16,12 @@
     <!--export from json-->
     <script src="https://unpkg.com/export-from-json/dist/umd/index.min.js"></script>
 
+    <!--html2pdf-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
     <title>Coin</title>
 </head>
 
@@ -76,7 +82,7 @@
 
             <div class="details-container">
                 <div class="details-text">
-                    <h1>Detalhes do projeto:</h1>
+                    <h1></h1>
                     <p></p>
                 </div>
                 <button class="close-details"><img src="./assets/cross.png" alt=""></button>
@@ -133,13 +139,47 @@
             </div>
 
             <div class="report">
-                <button class="show-report-data">Dados do último mês</button>
-                <button class="get-csv-btn">Gerar CSV</button>
+                <button class="show-report-data report-by-month-btn">Dados de um mês específico</button>
             </div>
 
             <div class="report-data-container">
+
+                <div class="no-result">
+                    <h1>Nenhum resultado localizado!</h1>
+                </div>
+
                 <div class="data">
                     <button class="close-data-btn"><img src="assets/cross.png" alt=""></button>
+
+                    <form class="month-selected-form">
+
+                        <select name="mes" id="mouth-select" required>
+                            <option value="" disabled selected>Mês</option>
+                            <option value="Janeiro">Janeiro</option>
+                            <option value="Fevereiro">Fevereiro</option>
+                            <option value="Março">Março</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Maio">Maio</option>
+                            <option value="Junho">Junho</option>
+                            <option value="Julho">Julho</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Setembro">Setembro</option>
+                            <option value="Outubro">Outubro</option>
+                            <option value="Novembro">Novembro</option>
+                            <option value="Dezembro">Dezembro</option>
+                        </select><br>
+
+                        <input type="number" placeholder="Ano desejado:" required id="yearPDF"><br>
+                        <input type="text" placeholder="Nome do arquivo" required id="filename-pdf"><br>
+
+                        <button class="create-pdf-btn">Gerar PDF</button>
+
+                        <div class="retroactive-content">
+                            <h1></h1>
+                        </div>
+
+                    </form>
+
                 </div>
             </div>
 
