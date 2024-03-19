@@ -126,29 +126,10 @@ createPDFBtn.addEventListener('click', (e) => {
     const noResult = document.querySelector('.no-result');
 
     const retroactiveContent = document.querySelector('.retroactive-content')
-    const filename = document.querySelector('#filename-pdf').value
     const totalMonthSelected = document.createElement('h1')
     totalMonthSelected.innerHTML = `Total faturado neste mês -  R$${currentTotalPrice}.00 `;
 
-    if (filename === '') {
-        noResult.style.display = 'block'
-        noResult.querySelector('h1').innerHTML = 'Inserir dados completamente!';
-
-        setTimeout(() => {
-            noResult.style.display = 'none';
-        }, 1500)
-
-        return;
-    }
-
-    //pdf settings
-    const options = {
-        margin: [10, 10, 10, 10],
-        filename: `${filename}.pdf`,
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    }
-
+    let found = false;
 
     coins.forEach(coin => {
 
@@ -170,17 +151,29 @@ createPDFBtn.addEventListener('click', (e) => {
             `;
 
             retroactiveContent.insertAdjacentHTML('afterbegin', content);
-
-        } else {
-            noResult.style.display = 'block';
-            setTimeout(() => {
-                noResult.style.display = 'none';
-            }, 1500)
+            found = true;
         }
 
     })
 
-    retroactiveContent.appendChild(totalMonthSelected)
-    console.log(retroactiveContent);
+    if (!found) {
+        noResult.style.display = 'block';
+        noResult.querySelector('h1').innerHTML = 'Nenhum resultado localizado!';
+        setTimeout(() => {
+            noResult.style.display = 'none';
+        }, 1500)
+        return;
+    }
 
-})
+    retroactiveContent.appendChild(totalMonthSelected)
+
+    const localWindow = window.open('', '', 'width=800,height=600');
+    localWindow.document.write('<html><head>');
+    localWindow.document.write('<title>PDF</title></head>');
+    localWindow.document.write('<body>');
+    localWindow.document.write(retroactiveContent.innerHTML);
+    localWindow.document.write('</body></html>');
+    localWindow.document.close();
+    localWindow.print()
+
+});

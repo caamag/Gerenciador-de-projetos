@@ -16,12 +16,6 @@
     <!--export from json-->
     <script src="https://unpkg.com/export-from-json/dist/umd/index.min.js"></script>
 
-    <!--html2pdf-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-
     <title>Coin</title>
 </head>
 
@@ -145,7 +139,7 @@
             <div class="report-data-container">
 
                 <div class="no-result">
-                    <h1>Nenhum resultado localizado!</h1>
+                    <h1></h1>
                 </div>
 
                 <div class="data">
@@ -170,7 +164,6 @@
                         </select><br>
 
                         <input type="number" placeholder="Ano desejado:" required id="yearPDF"><br>
-                        <input type="text" placeholder="Nome do arquivo" required id="filename-pdf"><br>
 
                         <button class="create-pdf-btn">Gerar PDF</button>
 
