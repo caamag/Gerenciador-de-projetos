@@ -5,7 +5,8 @@ Este é um sistema desenvolvido com JavaScript puro (sem o uso de frameworks) pa
 Cadastro de Projetos: Adicione novos projetos especificando o nome do cliente, nome do projeto e outras informações relevantes.
 Edição de Projetos: Atualize as informações de projetos existentes conforme necessário.
 Exclusão de Projetos: Remova projetos que já não são mais relevantes.
-Filtragem de Projetos: Busque projetos pelo nome do cliente, nome do projeto ou pelo ID do projeto visível na tela do usuário. Além disso, é possível filtrar os projetos pela data de criação.<br>
+Filtragem de Projetos: Busque projetos pelo nome do cliente, nome do projeto ou pelo ID do projeto visível na tela do usuário. Além disso, é possível filtrar os projetos pela data de criação.
+Relatórios: Também será possível gerar um arquivo CSV com todos os projetos ativos ou, se preferir, gerar um arquivo PDF com base em um período determinado pelo usuário, retornando os projeto que foram criados neste período.<br>
 
 <h2>Armazenamento de Dados</h2>
 As informações dos projetos são salvas localmente utilizando o localStorage do navegador. Isso significa que mesmo após atualizar a página, os dados permanecem disponíveis. No entanto, está nos planos futuros implementar uma API para melhorar a segurança e escalabilidade do sistema.<br>
