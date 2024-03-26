@@ -26,7 +26,27 @@
 @media screen and (max-width: 750px) {
     .coins {
         margin-left: 60px;
+        width: 80%;
         height: 60vh !important;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .create-coin-container form,
+    .edit-coin-container form {
+        width: 60%;
+    }
+
+    .report {
+        width: 80%;
+    }
+
+    .coins-container h1,
+    .total-projects,
+    .total-projects-price {
+        margin-left: 70px;
     }
 }
 
@@ -55,5 +75,35 @@
 
     .date {
         display: none;
+    }
+
+    .create-coin-container form,
+    .edit-coin-container form {
+        width: 80%;
+    }
+
+    .report {
+        width: 90%;
+    }
+
+    .show-report-data {
+        width: 60%;
+        font-size: 2rem;
+    }
+
+    .get-csv-btn {
+        width: 30%;
+    }
+
+    .close-report-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .return-menu {
+        bottom: 20px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
     }
 }
