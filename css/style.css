@@ -338,6 +338,10 @@ nav img {
 .coin p {
     padding-left: 10px;
     font-size: 2rem;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .details-project-btn {

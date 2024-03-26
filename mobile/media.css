@@ -1,21 +1,59 @@
 @media screen and (max-width: 1350px) {
-    .coins{
-        height: 350px;
+    .coins {
+        height: 450px;
     }
 
-    .coin{
+    .coin {
         width: 200px;
         height: 250px;
     }
-    .coin h3{
+
+    .coin h3 {
         padding-bottom: 50px;
         font-size: 1.8rem;
     }
-    .coin p{
+
+    .coin p {
         font-size: 1.6rem;
     }
+
     .edit img {
         width: 20px;
         height: 20px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .coins {
+        margin-left: 60px;
+        height: 60vh !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container nav {
+        width: 50px;
+    }
+
+    .date-filter-container {
+        display: none;
+    }
+
+    .search-form {
+        width: 50%;
+    }
+
+    .coin {
+        margin-left: 10px;
+    }
+
+    .coins-container h1,
+    .total-projects,
+    .total-projects-price {
+        margin-left: 50px;
+    }
+
+    .date {
+        display: none;
     }
 }
